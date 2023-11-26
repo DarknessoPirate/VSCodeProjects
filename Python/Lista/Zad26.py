@@ -8,7 +8,7 @@ def factorial(n):
 def a(alpha, beta,op):
     if(op == '+'):
         return 2*math.sin((alpha + beta)/2)*math.cos((alpha-beta)/2)
-    if(op == '-'):
+    elif(op == '-'):
         return 2*math.sin((alpha - beta)/2)*math.cos((alpha+beta)/2)
     else:
         print("Incorrect operator")

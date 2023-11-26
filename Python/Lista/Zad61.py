@@ -7,7 +7,7 @@ class StringReverser9000:
         self.reversed = " ".join(self.zdanie.split(" ")[::-1])
 
 
-object = StringReverser9000("Jeden. Dwa. Trzy. Cztery.")
+object = StringReverser9000("Jestem studentem. Jestem studentem.")
 print(object.reversed)
 
 
