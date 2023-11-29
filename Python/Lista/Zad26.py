@@ -48,5 +48,16 @@ def d(x):
 x = 5
 print(f"e^{x} = {d(x)}")
 
-def e(a0,n,x):
+def e(n,x):
+    T = 2*math.pi
+    a0 = 0
     result = a0
+    an = 0 
+    bn = (-2*math.pow(-1,n))/n
+
+    for i in range(100):
+        result += 4/T*an*math.cos(n*math.pi*x/T) + 4/T*bn*math.sin(n*math.pi*x/T)
+
+    return result
+
+print("Fourier:", e(5,2))
