@@ -3,7 +3,7 @@ import re
 import requests
 
 
-url = "https://platforma.polsl.pl/rms/"
+url = "https://www.polsl.pl"
 page = requests.get(url)
 html = page.text
 
