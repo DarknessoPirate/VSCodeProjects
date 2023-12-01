@@ -6,7 +6,7 @@ public class Zad1 {
     
     static boolean isPrime(int number)
     {
-        if (number < 1) return false;
+        if (number <= 1) return false;
 
         for(int i = 2; i <= number/2; i++)
         {

@@ -17,7 +17,7 @@ public class Zad2 {
         {
             line.replaceAll("\\s+"," ");
             buffer = line.split(" ");
-            System.out.println(lie);
+            System.out.println(line);
         }
            // int last = buffer.length -1;
 /* 
