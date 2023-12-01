@@ -11,6 +11,7 @@ unsigned int UseOperator(int a, int b, char opr)
         case '&': return a&b;
         case '|': return a|b;
     }
+    return 0;
 }
 std::vector<unsigned int> Generator(unsigned int mod, char opr, std::vector<unsigned int>& data, int k , int n){
     for(int i = data.size()-1; i+1 < n; i++){

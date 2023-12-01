@@ -1,2 +1,0 @@
-
-    std::stack<int> stos;
