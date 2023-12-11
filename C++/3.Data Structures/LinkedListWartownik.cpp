@@ -37,6 +37,20 @@ void insert_front(int value)
     size++;
 }
 
+Node* find(int data){
+    Node* ptr = headSentinel;
+    int i = 0;
+    while(ptr->next != tailSentinel){
+        ptr = ptr->next;
+        if(ptr->data == data){
+            std::cout << "Item found!\n";
+            return ptr;
+        }
+    }
+    std::cout << "Item not found!\n";
+    return 0;
+}
+
 void insert_last(int value)
 {
     Node* new_node = new Node(value);
@@ -185,6 +199,8 @@ int main()
     list.delete_first();
     list.delete_last();
     list.delete_at_index(3);
+    Node* n1 = list.find(7);
+    Node* n2 = list.find(9);
     list.displayList();
 
 
