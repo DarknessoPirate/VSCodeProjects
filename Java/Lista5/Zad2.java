@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 class Kolo{
     private double radius;
     private double side;
