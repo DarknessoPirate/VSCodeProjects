@@ -34,11 +34,11 @@ void search(char pattern[], char text[], int q){
                 std::cout << "Pattern found at index " << i << std::endl;
         }
             // calculate the hash value of the next substr
-            if(i < T - P){
-                substr_hash = (D * (substr_hash - text[i] * h) + text[P+i]) % q;
+        if(i < T - P){
+            substr_hash = (D * (substr_hash - text[i] * h) + text[P+i]) % q;
 
-                if(substr_hash < 0)
-                    substr_hash = substr_hash + q;
+            if(substr_hash < 0)
+                substr_hash = substr_hash + q;
             }
         }
     }

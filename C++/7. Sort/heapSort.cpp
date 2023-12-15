@@ -58,18 +58,15 @@ void printArray(T arr[],int size)
 
 int main()
 {
+int numbers[100000];
+for(int i = 0; i<100000; i++){
+    numbers[i] = rand() % 100000;
+}
+auto start = std::chrono::system_clock::now();
+heapSort(numbers,100000);
+auto end = std::chrono::system_clock::now();
+auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+std::cout << "Time taken to sort by heap sort: " << result.count() << " miliseconds\n";
 
-
-double arr[10] = {7.5,7.8,5.4,2.0,9.3,3.1,8.2,4.9,6.4,2.7};
-int arrsize = sizeof(arr)/sizeof(arr[0]);
-
-std::chrono::time_point start = std::chrono::high_resolution_clock::now();
-heapSort(arr,arrsize);
-std::chrono::time_point stop = std::chrono::high_resolution_clock::now();
-
-auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-
-printArray(arr,arrsize);
-std::cout << "\n" << duration.count();
-
+// printArray(numbers,1000);
 }

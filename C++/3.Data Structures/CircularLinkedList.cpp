@@ -27,57 +27,18 @@ Node* createNewList(Node* last, int new_data)
     return last;
 }
 
-Node* insertAtBegin(Node* last, int new_data)
+Node* insertItem(Node* root,  int new_data)
 {
-    // if the list is empty create a new list and return the address
-    if(last==NULL)
-        return createNewList(last, new_data);
-
     Node* new_node = new Node(new_data);
-    new_node->next = last->next;
-    last->next = new_node;
 
-    return last;
-}
-
-Node* insertAtEnd(Node* last, int new_data)
-{
-    if(last==NULL)
-        return createNewList(last, new_data);
-
-    Node* new_node = new Node(new_data);
-    new_node->next = last->next;
-    last->next = new_node;
-    last = new_node;
-
-    return last;
-}
-
-Node* insertAfterItem(Node*last, int new_data, int after_data)
-{
-    if(last==NULL)
-        return NULL;
-
+    if(root==NULL){
+        return createNewList(root,new_data);
+    }
     
-    Node* temp_ptr = last->next; // stores the location of the first element in the list
+    new_node->next = root->next;
+    root->next = new_node;
 
-    do
-    {
-        if(temp_ptr->data == after_data)
-        {
-            Node* new_node = new Node(new_data);
-            new_node->next = temp_ptr->next;
-            temp_ptr->next = new_node;
-
-            return last;
-        }
-
-        temp_ptr = temp_ptr->next;
-    } while (temp_ptr != last->next);
-
-    // when item isn't found
-    std::cout << "Node with data" << after_data << "wasn't found in the list" << std::endl;
-    return last;
+    return root;
 }
     
 void printList(Node* last)
@@ -89,17 +50,29 @@ void printList(Node* last)
         std::cout << "List is empty" << std::endl;
         return;
     }
-    Node* ptr = last->next; // pointer used to move through the list
+    Node* ptr = last; // pointer used to move through the list
     
 // Traverse the list until we reach the first element again
     do{ 
         std::cout << ptr->data << "->";
         ptr = ptr->next;
         
-    }while(ptr != last->next);  
-    if(ptr==last->next)
-        std::cout << ptr->data << std::endl;
-    
+    }while(ptr != last);  
+}
+
+Node* find(Node* root,int data){
+    if(root == NULL){
+        return NULL;
+    }
+    Node* temp = root;
+    do{
+        if(temp->data == data){
+            return temp;
+        }
+        temp = temp->next;
+    }while(temp != root);
+    std::cout << "Couldn't find node";
+    return NULL;
 }
 
 void deleteNode(Node** head, int key)
@@ -138,7 +111,7 @@ void deleteNode(Node** head, int key)
         temp = (*last)->next;
         (*last)->next = (*last)->next->next;
         delete temp;
-        std::cout << "The node with data: " << key << " has been deleted" << std::endl;
+        std::cout << "\nThe node with data: " << key << " has been deleted" << std::endl;
 
     }
 
@@ -148,14 +121,15 @@ void deleteNode(Node** head, int key)
 
 int main()
 {
-    Node* last = NULL;
-    last = createNewList(last, 7);
-    deleteNode(&last,7);
-    printList(last);
-    last = insertAtBegin(last, 5);
-    last = insertAtBegin(last, 4);
-    last = insertAtEnd(last, 2);
-    last = insertAtEnd(last, 1);
-    last = insertAfterItem(last, 2,2 );
-    printList(last);
+    Node* root = NULL;
+    root = createNewList(root, 7);
+    root = insertItem(root, 8);
+    root = insertItem(root, 1);
+    root = insertItem(root,23);
+    printList(root);
+    deleteNode(&root,23);
+    printList(root);
+    Node* foundData = find(root, 8);
+    std::cout << "\nfound data:"<<foundData->data;
+
 }

@@ -22,7 +22,7 @@ void fibGen(int i, int m)
 }
 int main()
 {
-fibGen(30,10);
+fibGen(100,173);
 
 
 }

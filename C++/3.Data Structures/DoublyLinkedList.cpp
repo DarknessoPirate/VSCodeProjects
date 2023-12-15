@@ -24,6 +24,21 @@ void insertFront(Node** head, int data)
     (*head) = new_node;
 }
 
+Node* find(Node* root,int data){
+    if(root == NULL){
+        return NULL;
+    }
+    Node* temp = root;
+    do{
+        if(temp->data == data){
+            return temp;
+        }
+        temp = temp->next;
+    }while(temp != NULL);
+    std::cout << "Couldnt find node\n";
+    return NULL;
+}
+
 void insertAfter(Node* prev_node, int data)
 {
     Node* new_node = new Node(data);
@@ -62,6 +77,26 @@ void insertAtEnd(Node** head, int data)
     return;
 }
 
+void removeLastNode(Node** root)
+{
+    if(*root==NULL)
+        return;
+
+    if((*root)->next==NULL)
+    {
+        delete *root;
+        return;
+    }
+
+    Node* second_last = *root; 
+    while(second_last->next->next != NULL) // iterate through the list until the pointer is second last node of the list
+    {
+        second_last = second_last->next;
+    }
+    delete (second_last->next); // delete the last node
+    second_last->next = NULL; // change next ptr to null
+}
+
 void displayList(Node* head)
 {
     Node* temp = head;
@@ -84,5 +119,9 @@ int main()
     displayList(head);
     insertAfter(head->next,7);
     displayList(head);
+    removeLastNode(&head);
+    displayList(head);
+    Node* foundData = find(head, 10);
+    std::cout << "Found data: "<<foundData->data;
 
 }
