@@ -29,6 +29,21 @@ bool isEmpty()
     return (this->size == 0);
 }
 
+int find(int data){
+    if(isEmpty()){
+        std::cout << "Queue is empty";
+        return INT_MIN;
+    }
+    for(int i = 0; i < size; i++){
+        if(this->data[i] == data){
+            std::cout << "Element found at index " << i << std::endl;
+            return i;
+        }
+    }
+    std::cout << "Couldn't find element\n";
+    return INT_MIN;
+}
+
 void enqueue(int item) // adding elements to the queue
 {
     if(isFull())
@@ -52,7 +67,7 @@ int dequeue()
     if(isEmpty())
     {
         std::cout << "Queue is empty! Returning..." << std::endl;
-        return INT_MIN; // return -1 if queue is empty 
+        return INT_MIN; // return INT_MIN if queue is empty 
     }
 
     int item = this->data[this->front]; // storing the item in temp variable
@@ -102,6 +117,8 @@ std::cout << q.Rear() << std::endl;
 // Checking functionality
 q.enqueue(1);
 q.enqueue(7);
+q.enqueue(9);
+int b = q.find(9);
 std::cout << "Front item: "<<  q.Front() << std::endl;
 std::cout << "Last item: "<< q.Rear() << std::endl;
 std::cout << "Dequeued: "<<q.dequeue() << std::endl;

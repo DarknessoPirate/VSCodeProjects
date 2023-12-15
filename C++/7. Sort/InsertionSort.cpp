@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 
 template<typename T>
 void insertionSort(T* arr, int size){
@@ -26,14 +27,15 @@ void printArray(T* arr, int size)
 }
 int main()
 {
-double numbers[] = {17.5, 13.2, 12.7, 1.3, 5.2, 7, 8.1, 9};
-int nums[] = {7,2, 5, 9, 13, 2, 27, 3, 19, 4};
-insertionSort(numbers, 8);
-insertionSort(nums, 10);
-printArray(numbers,8);
-printArray(nums,10);
+int numbers[100000];
+for(int i = 0; i<100000; i++){
+    numbers[i] = rand() % 100000;
+}
+auto start = std::chrono::system_clock::now();
+insertionSort(numbers,100000);
+auto end = std::chrono::system_clock::now();
+auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+std::cout << "Time taken to sort by insertion sort: " << result.count() << " miliseconds\n";
 
-
-
-
+// printArray(numbers, 1000);
 }

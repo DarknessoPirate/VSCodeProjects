@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <chrono>
 template<typename T>
 void swap(T& a, T& b)
 {
@@ -56,19 +56,25 @@ void quickSort(T* arr, int start, int end)
     quickSort(arr, p+1, end);
 }
 
+template<typename T>
+void printArray(T *arr, int size)
+{
+    for(int i = 0; i<size; i++){
+        std::cout << arr[i] << " " ; 
+    }
+}
+
 int main()
 {
-    double numbers[] = {11.5, 2.3, 4.7, 3, 5.2, 17.3, 12.1, 20, 1, 0, 17,  5.3};
+int numbers[100000];
+for(int i = 0; i<100000; i++){
+    numbers[i] = rand() % 100000;
+}
+auto start = std::chrono::system_clock::now();
+quickSort(numbers,0,99999);
+auto end = std::chrono::system_clock::now();
+auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+std::cout << "Time taken to sort by quick sort: " << result.count() << " miliseconds\n";
 
-    std::cout << "Before quickSort:\n";
-      for(int i = 0; i < 12; i++)
-        std::cout << numbers[i] << ",";
-
-    std::cout << std::endl;
-    quickSort(numbers, 0, 11);
-
-    std::cout << "After quickSort:\n";
-      for(int i = 0; i < 12; i++)
-        std::cout << numbers[i] << ",";
-
+// printArray(numbers, 1000);
 }

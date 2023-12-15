@@ -87,6 +87,21 @@ void pop()
     delete temp;  // deleting the previous head of the list
 }
 
+Node* find(int data){
+    if(head == NULL){
+        return NULL;
+    }
+    Node* temp = head;
+    do{
+        if(temp->data == data){
+            return temp;
+        }
+        temp = temp->next;
+    }while(temp != NULL);
+    std::cout << "Couldnt find node\n";
+    return NULL;
+}
+
 void deleteNode(int position)
 {
     Node** headref = &this->head; // storing head address   
@@ -153,9 +168,10 @@ list.insertAfter(30, 1);
 list.printList();
 list.append(40);
 list.append(50);
-list.printList();
 list.removeLastNode();
-
+Node* foundData = list.find(40);
+list.printList();
+std::cout << "\nFound data:" <<foundData->data;
 
 return 0;
 }

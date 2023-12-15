@@ -62,6 +62,22 @@ public:
         }
 
     }
+    Node* find(int data){
+        if(front == NULL){
+            std::cout << "Queue empty";
+            return NULL;
+        }
+        Node* temp = front;
+        do{
+            if(temp->data == data){
+               return temp;
+            }
+            temp = temp->next;
+        }while(temp != NULL);
+
+        std::cout << "Couldn't find node with correct data ";
+        return NULL;
+    }
 
     void displayList()
     {
@@ -92,7 +108,8 @@ int main()
     pq.displayList();
     pq.pop();
     pq.displayList();
-
+    Node* foundItem = pq.find(3);
+    std::cout << "Found item " << foundItem->data << " with priority " << foundItem->priority;
 
 
 }

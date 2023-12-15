@@ -1,4 +1,6 @@
 #include <iostream>
+#include <random>
+#include <chrono>
 
 template<typename T>
 void bubbleSort(T* arr, int size){
@@ -33,19 +35,17 @@ void print_array(D* array, int size)
 
 int main()
 {
+int numbers[100000];
+for(int i = 0; i<100000; i++){
+    numbers[i] = rand() % 100000;
+}
+auto start = std::chrono::system_clock::now();
+bubbleSort(numbers,100000);
+auto end = std::chrono::system_clock::now();
+auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+std::cout << "Time taken to sort by bubble sort: " << result.count() << " miliseconds";
 
-int numbers[] = {0,17,12,4,7,15,3,20};
-double nums[] = {0.5, 0.3, 1.5, 1.2, 33.2, 37.5, 31.0};
-std::cout << "Int arr before bubble sort:\n";
-print_array(numbers,8);
-bubbleSort(numbers,8);
-std::cout << "Int arr after bubble sort:\n";
-print_array(numbers,8);
+// print_array(numbers, 1000);
 
-std::cout << "Double arr before bubble sort:\n";
-print_array(nums,7);
-bubbleSort(nums,7);
-std::cout << "Double arr after bubble sort:\n";
-print_array(nums,7);
 }
 

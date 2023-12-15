@@ -219,12 +219,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- South ------------
  
-        // Only process this cell if this is a valid one
         if (isValid(i + 1, j) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i + 1, j, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i + 1][j].parent_i = i;
                 cellInfo[i + 1][j].parent_j = j;
                 printf("The destination cell is found\n");
@@ -232,9 +228,7 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 foundDest = true;
                 return;
             }
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
+
             else if (closedList[i + 1][j] == false
                      && isUnblocked(grid, i + 1, j)
                             == true) {
@@ -242,19 +236,11 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i + 1, j, dest);
                 fNew = gNew + hNew;
  
-                // If it isn’t on the open list, add it to
-                // the open list. Make the current square
-                // the parent of this square. Record the
-                // f, g, and h costs of the square cell
-                //                OR
-                // If it is on the open list already, check
-                // to see if this path to that square is
-                // better, using 'f' cost as the measure.
                 if (cellInfo[i + 1][j].f == FLT_MAX
                     || cellInfo[i + 1][j].f > fNew) {
                     openList.insert(std::make_pair(
                         fNew, std::make_pair(i + 1, j)));
-                    // Update the details of this cell
+
                     cellInfo[i + 1][j].f = fNew;
                     cellInfo[i + 1][j].g = gNew;
                     cellInfo[i + 1][j].h = hNew;
@@ -266,12 +252,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- East ------------
  
-        // Only process this cell if this is a valid one
         if (isValid(i, j + 1) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i, j + 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i][j + 1].parent_i = i;
                 cellInfo[i][j + 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -280,9 +262,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 return;
             }
  
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
             else if (closedList[i][j + 1] == false
                      && isUnblocked(grid, i, j + 1)
                             == true) {
@@ -290,20 +269,11 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i, j + 1, dest);
                 fNew = gNew + hNew;
  
-                // If it isn’t on the open list, add it to
-                // the open list. Make the current square
-                // the parent of this square. Record the
-                // f, g, and h costs of the square cell
-                //                OR
-                // If it is on the open list already, check
-                // to see if this path to that square is
-                // better, using 'f' cost as the measure.
                 if (cellInfo[i][j + 1].f == FLT_MAX
                     || cellInfo[i][j + 1].f > fNew) {
                     openList.insert(std::make_pair(
                         fNew, std::make_pair(i, j + 1)));
  
-                    // Update the details of this cell
                     cellInfo[i][j + 1].f = fNew;
                     cellInfo[i][j + 1].g = gNew;
                     cellInfo[i][j + 1].h = hNew;
@@ -315,12 +285,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- West ------------
  
-        // Only process this cell if this is a valid one
         if (isValid(i, j - 1) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i, j - 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i][j - 1].parent_i = i;
                 cellInfo[i][j - 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -329,9 +295,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 return;
             }
  
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
             else if (closedList[i][j - 1] == false
                      && isUnblocked(grid, i, j - 1)
                             == true) {
@@ -339,20 +302,11 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i, j - 1, dest);
                 fNew = gNew + hNew;
  
-                // If it isn’t on the open list, add it to
-                // the open list. Make the current square
-                // the parent of this square. Record the
-                // f, g, and h costs of the square cell
-                //                OR
-                // If it is on the open list already, check
-                // to see if this path to that square is
-                // better, using 'f' cost as the measure.
                 if (cellInfo[i][j - 1].f == FLT_MAX
                     || cellInfo[i][j - 1].f > fNew) {
                     openList.insert(std::make_pair(
                         fNew, std::make_pair(i, j - 1)));
  
-                    // Update the details of this cell
                     cellInfo[i][j - 1].f = fNew;
                     cellInfo[i][j - 1].g = gNew;
                     cellInfo[i][j - 1].h = hNew;
@@ -364,12 +318,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- Nort-East -----------
  
-        // Only process this cell if this is a valid one
         if (isValid(i - 1, j + 1) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i - 1, j + 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i - 1][j + 1].parent_i = i;
                 cellInfo[i - 1][j + 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -378,9 +328,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 return;
             }
  
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
             else if (closedList[i - 1][j + 1] == false
                      && isUnblocked(grid, i - 1, j + 1)
                             == true) {
@@ -388,20 +335,11 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i - 1, j + 1, dest);
                 fNew = gNew + hNew;
  
-                // If it isn’t on the open list, add it to
-                // the open list. Make the current square
-                // the parent of this square. Record the
-                // f, g, and h costs of the square cell
-                //                OR
-                // If it is on the open list already, check
-                // to see if this path to that square is
-                // better, using 'f' cost as the measure.
                 if (cellInfo[i - 1][j + 1].f == FLT_MAX
                     || cellInfo[i - 1][j + 1].f > fNew) {
                     openList.insert(std::make_pair(
                         fNew, std::make_pair(i - 1, j + 1)));
  
-                    // Update the details of this cell
                     cellInfo[i - 1][j + 1].f = fNew;
                     cellInfo[i - 1][j + 1].g = gNew;
                     cellInfo[i - 1][j + 1].h = hNew;
@@ -413,13 +351,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- North-West ------------
 
- 
-        // Only process this cell if this is a valid one
         if (isValid(i - 1, j - 1) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i - 1, j - 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i - 1][j - 1].parent_i = i;
                 cellInfo[i - 1][j - 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -428,9 +361,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 return;
             }
  
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
             else if (closedList[i - 1][j - 1] == false
                      && isUnblocked(grid, i - 1, j - 1)
                             == true) {
@@ -438,7 +368,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i - 1, j - 1, dest);
                 fNew = gNew + hNew;
  
-
                 if (cellInfo[i - 1][j - 1].f == FLT_MAX
                     || cellInfo[i - 1][j - 1].f > fNew) {
                     openList.insert(std::make_pair(
@@ -455,12 +384,8 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
  
         //----------- South-East ------------
  
-        // Only process this cell if this is a valid one
         if (isValid(i + 1, j + 1) == true) {
-            // If the destination cell is the same as the
-            // current successor
             if (isDestination(i + 1, j + 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i + 1][j + 1].parent_i = i;
                 cellInfo[i + 1][j + 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -468,10 +393,7 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 foundDest = true;
                 return;
             }
- 
-            // If the successor is already on the closed
-            // list or if it is blocked, then ignore it.
-            // Else do the following
+
             else if (closedList[i + 1][j + 1] == false
                      && isUnblocked(grid, i + 1, j + 1)
                             == true) {
@@ -479,13 +401,11 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 hNew = calculateHValue(i + 1, j + 1, dest);
                 fNew = gNew + hNew;
  
-
                 if (cellInfo[i + 1][j + 1].f == FLT_MAX
                     || cellInfo[i + 1][j + 1].f > fNew) {
                     openList.insert(std::make_pair(
                         fNew, std::make_pair(i + 1, j + 1)));
  
-                    // Update the details of this cell
                     cellInfo[i + 1][j + 1].f = fNew;
                     cellInfo[i + 1][j + 1].g = gNew;
                     cellInfo[i + 1][j + 1].h = hNew;
@@ -498,9 +418,7 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
         //----------- South West ------------
 
         if (isValid(i + 1, j - 1) == true) {
-
             if (isDestination(i + 1, j - 1, dest) == true) {
-                // Set the Parent of the destination cell
                 cellInfo[i + 1][j - 1].parent_i = i;
                 cellInfo[i + 1][j - 1].parent_j = j;
                 printf("The destination cell is found\n");
@@ -509,7 +427,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
                 return;
             }
  
-
             else if (closedList[i + 1][j - 1] == false
                      && isUnblocked(grid, i + 1, j - 1)
                             == true) {
@@ -533,7 +450,6 @@ void AStarAlgorithm(int grid[][COL], Pair src, Pair dest)
         }
     }
  
-
     if (foundDest == false)
         printf("Failed to find the Destination Cell\n");
  

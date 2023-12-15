@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <chrono>
 
 template<typename T>
 void merge(T arr[],int start, int mid, int end) // used to merge 2 subarrays into one array
@@ -89,8 +89,15 @@ void printArray(T *arr, int size)
 
 int main()
 {
-int nums[] = {7,7,12,23,9,0,1,15,4,12};
+int numbers[100000];
+for(int i = 0; i<100000; i++){
+    numbers[i] = rand() % 100000;
+}
+auto start = std::chrono::system_clock::now();
+mergeSort(numbers,0,99999);
+auto end = std::chrono::system_clock::now();
+auto result = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+std::cout << "Time taken to sort by merge sort: " << result.count() << " miliseconds\n";
 
-mergeSort(nums,0,8);
-printArray(nums,9);
+// printArray(numbers,1000);
 }
