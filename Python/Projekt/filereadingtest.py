@@ -24,5 +24,7 @@ def saveDataToFile(filepath, dict):
 readDataFromFile("C:\\VSCodeProjects\\Python\\Projekt\\testreadfile.txt",data)
 saveDataToFile("C:\\VSCodeProjects\\Python\\Projekt\\testwritefile.txt",data)
 print(data)
-            
+str = ""
+
+for item in data[2]:
 

@@ -1,0 +1,1 @@
+copy %userprofile%\*.txt %userprofile%\merged_files.txt
