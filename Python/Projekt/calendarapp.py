@@ -43,15 +43,15 @@ def openTaskList(root,button_number, data):
     closeButton = ctk.CTkButton(textBox, width = 10, height = 10, text = "X", text_color="black", command = lambda: closeTextWindow(textBox, button_number, data))
     closeButton.place(relx = 0.96, rely= 0.0)
 
-def createNewPage(root, month, offsetx, offsety,data):
+def createNewPage(root, month, offsetx, offsety,data, handleStorage):
     
     NO_OF_DAYS = cal.monthrange(2023, month)[1]
     current_day = 1
-    height = math.ceil(NO_OF_DAYS/7)
-    length = 7
+    rows = math.ceil(NO_OF_DAYS/7)
+    columns = 7
     saved_offsetx = offsetx
-    for i in range(height):
-        for j in range(length):
+    for i in range(rows):
+        for j in range(columns):
             if(current_day > NO_OF_DAYS):
                 break
 
@@ -74,21 +74,30 @@ def createNewPage(root, month, offsetx, offsety,data):
         offsetx = saved_offsetx
         offsety += 143
 
-
+def nextPage(direction, selected_month, selected_year):
+    if selected_year in fullData:
+        if (current_month + direction) in fullData[selected_month]:
+            fullData[selected_year][selected_month+direction][0].pack()
+        else:
+            fullData[selected_year][selected_month][0].pack_forget()
+            fullData
+            createNewPage()
 ##############################################################################################################################################################################################
 
 
 # data storage
-monthDict = {}
-daysData = {}
+global fullData 
+global current_month 
+fullData = {}
 dayHandles = []
+daysData = {}
 current_month = date.today().month
 
 
 
 readDataFromFile("testreadfile.txt", daysData)
 window = ctk.CTk(fg_color="white")
-window.geometry('1009x765') # 140(1+1 left/right pad)x140(1+1 pad between squares + 48 pixels of space for buttons )
+window.geometry('1009x765')
 window.title("Calendar")
 window.resizable(width = False, height = False)
 
@@ -98,13 +107,12 @@ dayFrame = ctk.CTkFrame(window, width = 1009, height = 725, fg_color="white")
 buttonFrame.pack()
 dayFrame.pack()
 
+createNewPage(dayFrame,current_month, 73, 110, daysData)
 # button creation
-nextButton = ctk.CTkButton(buttonFrame, text = "Next month", fg_color="#BB342F", text_color="#323639", font = ("Roboto Mono",15), corner_radius=20)
-prevButton = ctk.CTkButton(buttonFrame, text = "Previous month", fg_color="#BB342F", text_color="#323639", font = ("Roboto Mono",15), corner_radius=20)
+nextButton = ctk.CTkButton(buttonFrame, text = "Next month", fg_color="#BB342F", text_color="#323639", font = ("Roboto Mono",15), corner_radius=20, command = lambda: nextPage(1))
+prevButton = ctk.CTkButton(buttonFrame, text = "Previous month", fg_color="#BB342F", text_color="#323639", font = ("Roboto Mono",15), corner_radius=20, command = lambda: nextPage(-1))
 saveButton = ctk.CTkButton(buttonFrame, text = "Save", fg_color="#BB342F", text_color="#323639", font = ("Roboto Mono",15), command = lambda:saveDataToFile("testwritefile.txt",daysData))
 prevButton.pack(side = "left", padx = 3, pady = 3)
 nextButton.pack(side = "right",padx = 3, pady = 3)
 saveButton.pack(side = "right", padx = 10, pady = 5)
-
-createNewPage(dayFrame,current_month, 73, 110, daysData)
 window.mainloop()

@@ -2,5 +2,5 @@ import datetime
 import calendar
 import math
 
-res = calendar.monthrange(2023, 12)[1]
-print(math.ceil(res/7))
+d = {2019:{1:{23,24,25}, 2:{24,25,26}}}
+print(d[2019][1])
