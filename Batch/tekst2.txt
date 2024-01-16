@@ -1,0 +1,3 @@
+"linia z cudzyslowem na poczatku
+linia z "cudzyslowem w srodku
+linia z cudzyslowem na koncu"
