@@ -1,0 +1,194 @@
+Zadania dla skryptów w systemie Windows.
+1. Sprawdzić stan bieżący dysków w komputerze.
+
+2. Używając poleceń interpretera przeanalizować strukturę katalogów znajdujących się na
+dyskach komputera.
+
+3. Sprawdzić jakie dane bądź operacje są przechowywane w bieżącej sesji systemu w wieloschowku.
+
+4. Wyświetlić listę wszystkich plików znajdujących się w katalogu roboczym użytkownika
+w postaci stronicowej i ciągłej.
+
+5. Wyświetlić wszystkie pliki znajdujące się na dysku C: przy zachowaniu ich struktury
+przynależności.
+
+6. Porównać pliki znajdujące się w katalogu roboczym użytkownika i określić różnice w ich
+zawartości.
+
+7. Pliki starsze niż 4 miesiące skopiować do katalogu o nazwie wcześniej_niz_4_mies.
+
+8. Używając edytora linii poleceń przejrzeć zawartość skopiowanych plików.
+
+9. Porównać ze sobą pliki skopiowane.
+
+10. Określić wersję systemu operacyjnego.
+
+11. Określić następujące dane maszyny: nazwę komputera, liczbę woluminów wraz z pełną
+nazwą, ilość kart sieciowych i ich adresy fizyczne, adresację maszyny w domenie.
+
+12. Określić położenie i liczbę plików wykonywalnych zamieszczonych na danej maszynie.
+
+13. Sprawdzić poprawność pracy połączenia sieciowego.
+
+14. Określić liczbę procesów uruchomionych w bieżącej sesji systemu.
+
+15. Utworzyć plik tekstowy z listą nazw do posortowania, a następnie posortować zawartość
+tego pliku odpowiednią komendą.
+
+16. Nawiązać połączenie tekstowe typu chat z wybranym komputerem Kolegi lub Koleżanki.
+
+17. Połączyć w jeden plik wszystkie pliki tekstowe znalezione w katalogu użytkownika.
+
+18. Zmienić atrybut wszystkich skopiowanych plików tekstowych na archiwalny.
+
+19. Usunąć wszystkie skopiowane pliki tekstowe z rozszerzeniem .txt.
+
+20. Napisać skrypt powłoki windows wypisujący powitanie „witaj”.
+
+21. Napisać skrypt powłoki windows, który dla wybranego folderu umieści listę wszystkich znajdujących się w 
+nim plików i folderów w nowym pliku tekstowym o nazwie pliki_katalogi.txt.
+
+22. Napisać skrypt powłoki windows wykonujący plik zawierający listę wybranych elementów wskazanego folderu, 
+które to wejście i wyjście podane jest jako argument.
+
+23. Napisać skrypt powłoki windows wykonujący plik zawierający listę wybranych plików
+określonego typu (przykładowo dzienników lub plików tekstowych) we wskazanym folderze. Wejścia skryptu podajemy jako argumenty.
+
+24. Napisać skrypt powłoki windows wykonujący „back-up” zawartości wskazanego folderu,
+tak aby skopiowane zostały tylko elementy utworzone później oraz niepuste katalogi.
+Wejścia skryptu podajemy jako argumenty.
+
+25. Napisać skrypt powłoki windows kasujący wszystkie pliki tymczasowe znajdujące się we
+wskazanym folderze. Wejście skryptu podajemy jako argument.
+
+26. Napisać skrypt powłoki windows pytający użytkownika o imię i zapisujący je do zmiennej imie_uzytkownika. 
+Następnie po pobraniu jego imienia wypisujący powitanie: dzien
+dobry imie_uzytkownika.
+
+27. Napisać skrypt powłoki windows wykorzystujący ścieżkę do wybranej lokalizacji jedynie
+w sensie lokalnym w zależności od opcji wybranej przez użytkownika.
+
+28. Napisać skrypt powłoki windows wykorzystujący etykietę do opuszczenia części poleceń
+zadanych w skrypcie (uproszczone menu).
+
+29. Napisać skrypt powłoki windows oczekujący na reakcję użytkownika przed wykonaniem
+dalszych operacji (tzw. opóźniona reakcja).
+
+30. Napisać skrypt powłoki windows wyświetlający w tytule okna Twoje imię pobrane z
+klawiatury w trakcie działania.
+
+31. Napisać skrypt powłoki windows wyświetlający w tytule okna Twoje imię pobrane jako
+argument wejściowy.
+
+32. Napisać skrypt powłoki windows wyświetlający zadane 5 parametrów wejściowych z
+przesunięciem 2.
+
+33. Napisać skrypt powłoki windows wywołujący kolejno skrypt zmieniający tytuł okna na
+zadany jako argument wejściowy nazwę katalogu docelowego, a następnie drukujący
+drzewo bieżącego tego katalogu na ekran konsoli.
+
+34. Napisać skrypt powłoki windows wywołujący kolejno skrypt zmieniający tytuł okna
+na pobrany z klawiatury adres katalogu docelowego, a następnie drukujący listę tego
+katalogu pobranego również z klawiatury do zewnętrznego pliku wyjścia danych o nazwie
+zadanej przez użytkownika z klawiatury.
+
+35. Napisać skrypt powłoki windows wypisujący kolejne elementy zadanej listy.
+
+36. Napisać skrypt powłoki windows kopiujący do wybranego katalogu zadanego jako argument 
+wszystkie pliki tekstowe w katalogu bieżącym.
+
+37. Napisać skrypt powłoki windows konwertujący wszystkie pliki graficzne typów .jpg i
+.png z bieżącego katalogu do grafiki wektorowej typu .eps. Można zastosować konwerter
+online.
+
+38. Napisać skrypt powłoki windows, który wypisze do pliku tekstowego o lokalizacji pobranej z 
+klawiatury kolejne liczby od 0 do zadanej przez użytkownika jako argument
+wejściowy za pomocą pętli.
+
+39. Napisać skrypt powłoki windows wywołujący skrypt konwertujący wszystkie pliki graficzne typów 
+.jpg i .png z zadanego jako argument skryptu do grafiki wektorowej typu
+.eps, a następnie wywołujący skrypt tworzący listę wszystkich plików graficznych w tym
+katalogu.
+
+40. Napisać skrypt powłoki windows, który wypisze wszystkie katalogi znajdujące się w
+obecnym katalogu.
+
+41. Napisać skrypt powłoki windows, który wypisze wszystkie katalogi znajdujące się w
+obecnym katalogu do pliku zadanego przez użytkownika jako argument wejściowy.
+
+42. Napisać skrypt powłoki windows kasujący określony typ pliku (przykładowo .tmp) w
+bieżącym katalogu.
+
+43. Napisać skrypt powłoki windows kasujący określony typ pliku (przykładowo .tmp) w
+katalogu podanym jako argument.
+
+44. Napisać skrypt powłoki windows sprawdzający czy w bieżącym katalogu występuje
+określony typ pliku, jeśli tak to wywołuje skrypt kasujący ten typ plików (podawany 
+z klawiatury), a jeśli nie to wypisujący komunikat o nieznalezieniu takich wartości.
+
+45. Napisać skrypt powłoki windows tworzący numery od 1 do n pobranego z klawiatury i
+wysyłający je do pliku o nazwie pobranej jako argument.
+
+46. Napisać skrypt powłoki windows tworzący numery od 1 do n pobranego z klawiatury
+i wysyłający je do pliku o nazwie pobranej jako argument. Skrypt powinien używać
+komendy set aby utworzyć zmienną, która jest także licznikiem ile razy powtórzyć operację.
+
+47. Napisać skrypt powłoki windows tworzący lub kasujący plik test.txt z bieżącego katalogu
+w zależności od podanego parametru.
+
+48. Napisać skrypt powłoki windows, który będzie przeglądać dyski komputera w poszukiwaniu
+pliku przekazanego programowi jako parametr.
+
+49. Napisać skrypt powłoki windows kasujący niechciane pliki tymczasowe z wybranego
+katalogu.
+
+50. Napisać skrypt powłoki windows, który usunie wpisy z podmenu Autostart menu Start.
+Kasuje również wpisy w Edytorze rejestru odpowiedzialne za automatyczne uruchamianie programów przy 
+starcie systemu. Skrypt powinien obsługiwać dwa "przełączniki"/a oraz /h, pierwszy z nich usuwa
+wszystkie wpisy bez pytania użytkownika, drugi natomiast wyświetla pomoc.
+
+51. Napisać skrypt powłoki windows, który potrafi wykonywać proste operacje arytmetyczne
+(+,-,*,/) na zmiennej pobranej z klawiatury.
+
+52. Napisać skrypt powłoki windows, który potrafi przeliczać liczby z systemu szesnastkowego na dziesiętny zadawane jako parametr.
+
+53. Napisać skrypt powłoki windows, który potrafi przeliczać liczby z systemu szesnastkowego na dziesiętny podawane z klawiatury.
+
+54. Napisać skrypt powłoki windows zamieniający nazwę miesiąca podaną jako argument
+na odpowiadający jej numer.
+
+55. Napisać skrypt powłoki windows zamieniający nazwę miesiąca podana z klawiatury na
+odpowiadający jej numer.
+
+56. Napisać skrypt powłoki windows zamieniający nazwę miesiąca zapisana w pliku miesiąc.txt wczytywanym 
+jako argument na odpowiadający jej numer.
+
+57. Napisać skrypt powłoki windows wybierający konkretne pozycje z ciągu znaków wpisanego z klawiatury.
+
+58. Napisać skrypt powłoki windows usuwający podane słowa z ciągu wpisanego jako argument.
+
+59. Napisać skrypt powłoki windows usuwający podane słowa z ciągu wczytanego z pliku
+podanego jako argument.
+
+60. Napisać skrypt powłoki windows scalający ciągi wpisane z klawiatury.
+
+61. Napisać skrypt powłoki windows scalający ciągi wczytane z dwóch różnych plików
+dane1.txt oraz dane2.txt których lokalizacja jest wczytana z klawiatury.
+
+62. Napisać skrypt powłoki windows usuwający cudzysłowy okalające tekst za pomocą pętli
+for. Jako tekst przyjmujemy ścieżkę dostępową do danego skryptu wczytywaną jako
+argument.
+
+63. Napisać skrypt powłoki windows, który będzie śzkieletem"menu do skryptów batch.
+
+64. Napisać skrypt powłoki windows zamieniający podane słowa z pliku tekstowego wczytanego
+jako argument na podany ciąg znaków i wyświetlający oba teksty przed i po
+zmianie na ekran.
+
+65. Napisać skrypt powłoki windows zamieniający podane słowa z pliku tekstowego wczytanego 
+jako argument na podany ciąg znaków i zapisujący tekst po zmianie do pliku
+zewnętrznego o nazwie podanej jako drugi argument.
+
+66. Napisać skrypt powłoki windows, który zamieni wszystkie rozszerzenia .txt z katalogu
+zadanego jako argument wejściowy i jeśli wybrana zostanie opcja kopiowania skopiuje
+wszystkie zamienione pliki jeśli są starsze od daty poda

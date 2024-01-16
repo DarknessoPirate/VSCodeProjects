@@ -1,0 +1,1 @@
+forfiles /p %userprofile%\starsze_niz_4mies /m *.txt /c "cmd /c del @path"

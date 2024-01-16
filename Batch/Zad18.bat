@@ -1,0 +1,1 @@
+forfiles /p %userprofile% /m *.txt /c "cmd /c attrib +a @path"
