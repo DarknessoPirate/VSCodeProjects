@@ -106,45 +106,35 @@ public class cipher {
         return result;
     }
 
-    static String readDataFromFile(String path) throws IOException
-    {
-        BufferedReader myReader = new BufferedReader(new FileReader(path));
-        String line;
-        int k = 0;
-        while ((line = myReader.readLine()) != null)
-        {
-            String[] splitString = line.split(" ");
-            
-            for(int i = 0; i < splitString.length;i++,k++)
-        {
-            System.out.printf("%s ",splitString[i]);
-        }
-        }
-        myReader.close();
-        return "0";//////////////////////////////
-    }
 
-    static void cipher_to_file(String path_from, String path_to) throws IOException{
-        BufferedReader myReader = new BufferedReader(new FileReader(path_from));
-        BufferedWriter myWriter = new BufferedWriter(new FileWriter(path_to));
-        String current_ciphered_word;
-        String line;
-
-        while ((line = myReader.readLine()) != null){
-            String[] words = line.split(" ");
+    static void cipher_to_file(String path_from, String path_to){
+        try{
+            BufferedReader myReader = new BufferedReader(new FileReader(path_from));
+            BufferedWriter myWriter = new BufferedWriter(new FileWriter(path_to));
+            String current_ciphered_word;
+            String line;
     
-            for(int i = 0; i < words.length;i++){
-                current_ciphered_word = cipher_word(words[i]);
-                myWriter.append(current_ciphered_word);
-                myWriter.append('\n');
+            while ((line = myReader.readLine()) != null){
+                String[] words = line.split(" ");
+        
+                for(int i = 0; i < words.length;i++){
+                    current_ciphered_word = cipher_word(words[i]);
+                    myWriter.append(current_ciphered_word);
+                    myWriter.append('\n');
+                }
             }
+            myReader.close();
+            myWriter.close();
         }
-        myReader.close();
-        myWriter.close();
+        catch(IOException e){
+            System.out.println(e);
+        }
+        
     }
 
     static void decipher_from_file(String path_from,String path_to) throws IOException{
-        BufferedReader myReader = new BufferedReader(new FileReader(path_from));
+        try{
+            BufferedReader myReader = new BufferedReader(new FileReader(path_from));
         BufferedWriter myWriter = new BufferedWriter(new FileWriter(path_to, true));
         String current_deciphered_word;
         String line;
@@ -156,10 +146,21 @@ public class cipher {
         }
         myReader.close();
         myWriter.close();
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+        
     }
 
-    public static void main(String[] args) throws IOException{
-        cipher_to_file("normal_text.txt", "ciphered_text.txt");
-        decipher_from_file("ciphered_text.txt", "deciphered_text.txt");
+    public static void main(String[] args){
+        try{
+            cipher_to_file("normal_text.txt", "ciphered_text.txt");
+            decipher_from_file("ciphered_text.txt", "deciphered_text.txt");
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+
     }
 }
