@@ -6,6 +6,7 @@ import calendar as cal
 import math
 from datetime import date
 
+#################################################################################################
 
 def saveDataToFile(filepath, data):
     with open(filepath, "w") as myFile:
@@ -14,24 +15,28 @@ def saveDataToFile(filepath, data):
             for element in data[key]:
                 myFile.write(f"{element}\n")
 
+#################################################################################################
+
+def readDataFromFile(filepath, dict):
+    with open(filepath,"r") as myFile:
+        for line in myFile:
+            if line[0] == "#":
+                date = line.removeprefix("#").strip()
+                day = int(date[0:2:1])
+                if (day > 0 and day < 32 and date not in dict):
+                    dict[date] = []
+
+            elif (date in dict):
+                    if line.strip() != "":
+                        dict[date].append(line.strip())
+
+###############################################################################################
 
 def closeTextWindow(element,day_number,data):
     data[day_number] = element.get("1.0",tk.END)
     element.destroy()
 
-def readDataFromFile(filepath, dict):
-    day = -1 
-    with open(filepath,"r") as myFile:
-        for line in myFile:
-            if line[0] == "#":
-                day = int(line.removeprefix("#"))
-                if (day > 0 and day < 32 and day not in dict):
-                    dict[day] = []
-
-            elif (day in dict):
-                    if line.strip() != "":
-                        dict[day].append(line.strip())
-
+###############################################################################################
 
 def openTaskList(root,button_number, data):
     tasks = ""
@@ -43,6 +48,7 @@ def openTaskList(root,button_number, data):
     closeButton = ctk.CTkButton(textBox, width = 10, height = 10, text = "X", text_color="black", command = lambda: closeTextWindow(textBox, button_number, data))
     closeButton.place(relx = 0.96, rely= 0.0)
 
+def createNewPage(root, month, offsetx, offsety,data):
 def createNewPage(root, month, offsetx, offsety,data):
     
     NO_OF_DAYS = cal.monthrange(2023, month)[1]
@@ -68,33 +74,34 @@ def createNewPage(root, month, offsetx, offsety,data):
                        corner_radius=20, 
                        font = ("Roboto Mono",15),
                        command = lambda i = current_day: openTaskList(root, i, data)).grid(column = j, row = i, padx = 2, pady = 2)
-                dayHandles.append([button, 7*i + j+1])
+                #dayHandles.append([button, 7*i + j+1])
                 offsetx += 143
                 current_day += 1
         offsetx = saved_offsetx
         offsety += 143
 '''
-## def nextPage(direction, selected_month, selected_year):
-##   if selected_year in fullData:
+def nextPage(direction, selected_month, selected_year):
+    if selected_year in fullData:
         if (current_month + direction) in fullData[selected_month]:
             fullData[selected_year][selected_month+direction][0].pack()
         else:
             fullData[selected_year][selected_month][0].pack_forget()
             fullData
             createNewPage()
+'''
 ##############################################################################################################################################################################################
 '''
 
-# data storage
-global fullData 
-global current_month 
-fullData = {}
-dayHandles = []
+
+#fullData = {}
+#dayHandles = []
 daysData = {}
 current_month = date.today().month
 
 
 readDataFromFile("testreadfile.txt", daysData)
+
+# window creation
 window = ctk.CTk(fg_color="white")
 window.geometry('1009x765')
 window.title("Calendar")
