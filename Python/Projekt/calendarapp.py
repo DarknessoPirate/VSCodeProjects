@@ -43,7 +43,7 @@ def openTaskList(root,button_number, data):
     closeButton = ctk.CTkButton(textBox, width = 10, height = 10, text = "X", text_color="black", command = lambda: closeTextWindow(textBox, button_number, data))
     closeButton.place(relx = 0.96, rely= 0.0)
 
-def createNewPage(root, month, offsetx, offsety,data, handleStorage):
+def createNewPage(root, month, offsetx, offsety,data):
     
     NO_OF_DAYS = cal.monthrange(2023, month)[1]
     current_day = 1
@@ -73,9 +73,9 @@ def createNewPage(root, month, offsetx, offsety,data, handleStorage):
                 current_day += 1
         offsetx = saved_offsetx
         offsety += 143
-
-def nextPage(direction, selected_month, selected_year):
-    if selected_year in fullData:
+'''
+## def nextPage(direction, selected_month, selected_year):
+##   if selected_year in fullData:
         if (current_month + direction) in fullData[selected_month]:
             fullData[selected_year][selected_month+direction][0].pack()
         else:
@@ -83,7 +83,7 @@ def nextPage(direction, selected_month, selected_year):
             fullData
             createNewPage()
 ##############################################################################################################################################################################################
-
+'''
 
 # data storage
 global fullData 
@@ -92,7 +92,6 @@ fullData = {}
 dayHandles = []
 daysData = {}
 current_month = date.today().month
-
 
 
 readDataFromFile("testreadfile.txt", daysData)
