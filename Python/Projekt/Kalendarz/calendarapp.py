@@ -11,8 +11,6 @@ current_year = date.today().year  #
 daysData = {}                     #
 ###################################
 
-##############################################################################################
-
 def generate_dict_index(button_number):
 
     if (button_number > 0 and button_number < 10):
@@ -27,8 +25,7 @@ def generate_dict_index(button_number):
             button_index = f"{button_number}-{current_month}-{current_year}"
     
     return button_index
-
-##############################################################################################
+###########################################################################
 
 def saveDataToFile(filepath, data):
     with open(filepath, "w") as myFile:
@@ -44,7 +41,7 @@ def saveDataToFile(filepath, data):
                     if element.strip() != "" and element != "":
                         myFile.write(f"{element}\n")
 
-##############################################################################################
+##########################################################################
 
 def readDataFromFile(filepath, dict):
     with open(filepath,"r") as myFile:
@@ -59,17 +56,19 @@ def readDataFromFile(filepath, dict):
                     if line.strip() != "":
                         dict[date].append(line.strip())
 
-##############################################################################################
+###########################################################################
                         
 def closeTextWindow(element,button_number,data):
     button_index = generate_dict_index(button_number)
+
     data[button_index] = element.get("1.0",tk.END).split("\n")
     element.destroy()
 
-##############################################################################################
+###########################################################################
 
 def openTaskList(root,button_number, data):
     button_index = generate_dict_index(button_number)
+
     tasks = ""
     if button_index in data:
         for task in data[button_index]:
@@ -82,7 +81,8 @@ def openTaskList(root,button_number, data):
     closeButton = ctk.CTkButton(textBox, width = 10, height = 10, text = "X", text_color="black", corner_radius=20 ,fg_color="#981722", bg_color="#1d1e1e", command = lambda: closeTextWindow(textBox, button_number, data))
     closeButton.place(relx = 0.96, rely= 0.0)
 
-##############################################################################################
+
+###########################################################################
 
 def createPage(root, month, year , offsetx, offsety, data):
     dayFrame = ctk.CTkFrame(root, width = 1009, height = 725, fg_color="#94BEDE")
@@ -117,7 +117,7 @@ def createPage(root, month, year , offsetx, offsety, data):
         offsetx = saved_offsetx
         offsety += 143
 
-##############################################################################################
+###########################################################################
 
 def createNextPage(root, offsetx, offsety, data):
     global current_year
@@ -133,7 +133,7 @@ def createNextPage(root, offsetx, offsety, data):
     currentFrameHandle.destroy()
     createPage(root, current_month, current_year,offsetx, offsety, data)
 
-##############################################################################################
+###########################################################################
 
 def createPrevPage(root, offsetx, offsety,data):
     global current_year
@@ -150,7 +150,6 @@ def createPrevPage(root, offsetx, offsety,data):
     createPage(root, current_month, current_year,offsetx, offsety, data)
 
 ##############################################################################################################################################################################################
-
 # if config filenot present create an empty one
 if not os.path.exists("data.txt"):
     with open("data.txt","w") as file:
