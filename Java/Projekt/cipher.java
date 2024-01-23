@@ -107,7 +107,7 @@ public class cipher {
     }
 
 
-    static void cipher_to_file(String path_from, String path_to){
+    static void cipher_to_file(String path_from, String path_to) throws IOException{
         try{
             BufferedReader myReader = new BufferedReader(new FileReader(path_from));
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(path_to));
@@ -134,7 +134,7 @@ public class cipher {
 
     static void decipher_from_file(String path_from,String path_to) throws IOException{
         try{
-            BufferedReader myReader = new BufferedReader(new FileReader(path_from));
+        BufferedReader myReader = new BufferedReader(new FileReader(path_from));
         BufferedWriter myWriter = new BufferedWriter(new FileWriter(path_to, true));
         String current_deciphered_word;
         String line;
