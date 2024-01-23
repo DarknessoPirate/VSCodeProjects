@@ -1,17 +1,18 @@
 data = {}
-day = -1 
+
 
 def readDataFromFile(filepath, dict):
     with open(filepath,"r") as myFile:
         for line in myFile:
-            if line[0] is "#":
-                day = int(line.removeprefix("#"))
-                if (day > 0 and day < 32 and day not in dict):
-                    dict[day] = []
+            if line[0] == "#":
+                date = line.removeprefix("#").strip()
+                day = int(date[0:2:1])
+                if (day > 0 and day < 32 and date not in dict):
+                    dict[date] = []
 
-            elif (day in dict):
-                    if line.strip() is not "":
-                        dict[day].append(line.strip())
+            elif (date in dict):
+                    if line.strip() != "":
+                        dict[date].append(line.strip())
 
 def saveDataToFile(filepath, dict):
      with open(filepath,"w") as myFile:
@@ -26,5 +27,5 @@ saveDataToFile("C:\\VSCodeProjects\\Python\\Projekt\\testwritefile.txt",data)
 print(data)
 str = ""
 
-for item in data[2]:
+
 
